@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Calculations</string>
+    <string name="nag_math">Math</string>
+    <string name="nag_history">History</string>
+    <string name="nag_sport">Sport</string>
+    <string name="nag_art">Art</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
