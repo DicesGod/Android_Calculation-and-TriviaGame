@@ -1,5 +1,6 @@
 package com.minhle.calculations;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,6 +47,10 @@ public class History extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.btnFinish:
+//                Intent intent = new Intent(this, Result.class);
+//                intent.putExtra("tag", Arrayresult);
+//                startActivity(intent);
+//                break;
 
                 break;
         }

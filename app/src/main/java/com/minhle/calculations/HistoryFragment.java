@@ -56,7 +56,7 @@ public class HistoryFragment extends Fragment {
     }
 
 
-
+    //check if there is next question or not
     public boolean next(int i, int j) {
         try {
             Questions history = new Questions();
