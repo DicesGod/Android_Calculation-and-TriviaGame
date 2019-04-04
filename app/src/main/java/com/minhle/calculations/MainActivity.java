@@ -24,7 +24,7 @@ import model.Operator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnDot,btnMinus,btnGenerate,btnQuit,btnEqual,btnShowAll,btnClear;
+    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,bntStart,btnMinus,btnGenerate,btnQuit,btnEqual,btnSave,btnResult,btnClear;
     TextView textViewQuestion;
     EditText editTextResult;
     Operator oper;
@@ -79,13 +79,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7 = findViewById(R.id.button7);
         btn8 = findViewById(R.id.button8);
         btn9 = findViewById(R.id.button9);
-        btnDot = findViewById(R.id.buttonDot);
+        bntStart = findViewById(R.id.buttonStart);
         btnMinus = findViewById(R.id.buttonMinus);
         btnGenerate = findViewById(R.id.buttonGenerate);
         btnClear = findViewById(R.id.buttonClear);
         btnQuit = findViewById(R.id.buttonQuit);
         btnEqual = findViewById(R.id.buttonEqual);
-        btnShowAll = findViewById(R.id.buttonShowAll);
+        btnSave = findViewById(R.id.buttonSave);
+        btnResult = findViewById(R.id.buttonResult);
         menu = findViewById(R.id.navigation);
 
         btn0.setOnClickListener(this);
@@ -98,13 +99,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
-        btnDot.setOnClickListener(this);
+        bntStart.setOnClickListener(this);
         btnMinus.setOnClickListener(this);
         btnGenerate.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         btnQuit.setOnClickListener(this);
         btnEqual.setOnClickListener(this);
-        btnShowAll.setOnClickListener(this);
+        btnSave.setOnClickListener(this);
+        btnResult.setOnClickListener(this);
         textViewQuestion = findViewById(R.id.textViewQuestion);
         editTextResult = findViewById(R.id.editTextAnswer);
         Arrayresult = new ArrayList<String>();
@@ -161,8 +163,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editTextResult.setText(editTextResult.getText()+"9");
                 break;
 
-            case R.id.buttonDot:
-                editTextResult.setText(editTextResult.getText()+".");
+            case R.id.buttonStart:
+
                 break;
 
             case R.id.buttonMinus:
@@ -206,7 +208,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"YOU HAVE NO OPERATION OR THE ANSWER!",Toast.LENGTH_LONG).show();
                 break;
 
-            case R.id.buttonShowAll:
+            case R.id.buttonSave:
+
+
+            case R.id.buttonResult:
                 //startActivityForResult(new Intent(getApplicationContext(),Result.class),999);
                 float percent = correctcount/totalcount*100;
                 if (Arrayresult.toString()==null) {
