@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Operator {
 
-    float num1 = 0;
-    float num2 = 0;
-    String question = "";
-    float answer=0;
-    String operator="";
+    static float num1 = 0;
+    static float num2 = 0;
+    static String question = "";
+    static float answer=0;
+    static String operator="";
 
-    public String generator()
+    public static String generator()
     {
         Random rand = new Random();
         num1 = rand.nextInt(10) + 1;
@@ -21,7 +21,7 @@ public class Operator {
         return question;
     }
 
-    public float calculation()
+    public static float calculation()
     {
         switch (operator)
         {
