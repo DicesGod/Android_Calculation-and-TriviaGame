@@ -5,18 +5,25 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import model.MathQuestion;
+
 public class Result extends AppCompatActivity{
 
     Button btnBack;
     TextView textViewResult;
-    ArrayList listresult;
+    ArrayList mathResultsList;
     TextView textViewPercent;
+    ListView listViewMathResult;
+    MathQuestionsAdapter mathResulstArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,24 +44,28 @@ public class Result extends AppCompatActivity{
             //Toast.makeText(this, "=null", Toast.LENGTH_LONG).show();
 
        // }
-        listresult = (ArrayList) getIntent().getExtras().getSerializable("tag");
-        String result="";
 
-        for (int i = 0; i < listresult.size()-1;i++)
-        {
-            result = result.concat(listresult.get(i).toString());
+       // String result="";
 
 
-        }
-        textViewResult.setText(result);
-        textViewPercent.setText(listresult.get(listresult.size()-1).toString());
+
     }
 
     public void initialize()
     {
         btnBack = findViewById(R.id.buttonBack);
-        textViewResult = findViewById(R.id.textViewResult);
+        listViewMathResult = findViewById(R.id.listViewResult);
+        mathResultsList = new ArrayList<Object>();
         textViewPercent = findViewById(R.id.textViewPercent);
+
+        mathResultsList = (ArrayList) getIntent().getExtras().getSerializable("tag");
+        mathResulstArrayAdapter = new MathQuestionsAdapter(this, mathResultsList) {
+        };
+        listViewMathResult = findViewById(R.id.listViewResult);
+        listViewMathResult.setAdapter(mathResulstArrayAdapter);
+
+        mathResulstArrayAdapter.addAll(mathResultsList);
+        mathResulstArrayAdapter.notifyDataSetChanged();
     }
 
     //@Override
@@ -77,8 +88,9 @@ public class Result extends AppCompatActivity{
 
     public void back(View view){
         Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra("key",listresult);
-        //onSaveInstanceState(savedInstanceState);
+//        //intent.putExtra("key",listresult);
+//        //onSaveInstanceState(savedInstanceState);
         startActivity(intent);
+//        finish();
     }
 }

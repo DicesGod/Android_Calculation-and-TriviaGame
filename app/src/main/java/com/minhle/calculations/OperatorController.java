@@ -1,16 +1,27 @@
-package model;
+package com.minhle.calculations;
 
 import java.util.Random;
 
-public class Operator {
+public class OperatorController {
 
-    static float num1 = 0;
-    static float num2 = 0;
-    static String question = "";
-    static float answer=0;
-    static String operator="";
+    static private float num1 = 0;
+    static private float num2 = 0;
+    static private String question = "";
+    static private float answer=0;
+    static private String operator="";
 
-    public static String generator()
+    public static float getAnswer() {
+        answer = calculation();
+        return answer;
+    }
+
+
+    public static String getQuestion() {
+        question = generator();
+        return question;
+    }
+
+    private static String generator()
     {
         Random rand = new Random();
         num1 = rand.nextInt(10) + 1;
@@ -21,7 +32,7 @@ public class Operator {
         return question;
     }
 
-    public static float calculation()
+    private static float calculation()
     {
         switch (operator)
         {

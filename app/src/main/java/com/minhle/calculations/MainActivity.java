@@ -1,12 +1,9 @@
 package com.minhle.calculations;
 
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,18 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
+import model.MathQuestion;
 import model.Navigation;
-import model.Operator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,bntStart,btnMinus,btnGenerate,btnQuit,btnEqual,btnSave,btnResult,btnClear;
+    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnStart,btnMinus,btnStop,btnQuit,btnEqual,btnSave,btnResult,btnClear;
     TextView textViewQuestion;
+    TextView textViewCountDown;
     EditText editTextResult;
-    Operator oper;
     ArrayList Arrayresult;
+    ArrayList mathQuestionsList;
     String content;
     float totalcount;
     float correctcount;
@@ -79,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7 = findViewById(R.id.button7);
         btn8 = findViewById(R.id.button8);
         btn9 = findViewById(R.id.button9);
-        bntStart = findViewById(R.id.buttonStart);
+        btnStart = findViewById(R.id.buttonStart);
         btnMinus = findViewById(R.id.buttonMinus);
-        btnGenerate = findViewById(R.id.buttonGenerate);
+        btnStop = findViewById(R.id.buttonStop);
         btnClear = findViewById(R.id.buttonClear);
         btnQuit = findViewById(R.id.buttonQuit);
         btnEqual = findViewById(R.id.buttonEqual);
@@ -99,9 +96,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
-        bntStart.setOnClickListener(this);
+        btnStart.setOnClickListener(this);
         btnMinus.setOnClickListener(this);
-        btnGenerate.setOnClickListener(this);
+        btnStop.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         btnQuit.setOnClickListener(this);
         btnEqual.setOnClickListener(this);
@@ -109,11 +106,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnResult.setOnClickListener(this);
         textViewQuestion = findViewById(R.id.textViewQuestion);
         editTextResult = findViewById(R.id.editTextAnswer);
+        textViewCountDown = findViewById(R.id.textViewCountDown);
         Arrayresult = new ArrayList<String>();
-        oper = new Operator();
+        mathQuestionsList = new ArrayList<MathQuestion>();
         content = "";
         totalcount = 0;
         correctcount = 0;
+
+        btnSave.setEnabled(false);
+        btnStop.setEnabled(false);
     }
 
 
@@ -124,82 +125,93 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
 
             case R.id.button0:
-                editTextResult.setText(editTextResult.getText()+"0");
+                editTextResult.setText(editTextResult.getText() + "0");
                 break;
 
             case R.id.button1:
-                editTextResult.setText(editTextResult.getText()+"1");
+                editTextResult.setText(editTextResult.getText() + "1");
                 break;
 
             case R.id.button2:
-                editTextResult.setText(editTextResult.getText()+"2");
+                editTextResult.setText(editTextResult.getText() + "2");
                 break;
 
             case R.id.button3:
-                editTextResult.setText(editTextResult.getText()+"3");
+                editTextResult.setText(editTextResult.getText() + "3");
                 break;
 
             case R.id.button4:
-                editTextResult.setText(editTextResult.getText()+"4");
+                editTextResult.setText(editTextResult.getText() + "4");
                 break;
 
             case R.id.button5:
-                editTextResult.setText(editTextResult.getText()+"5");
+                editTextResult.setText(editTextResult.getText() + "5");
                 break;
 
             case R.id.button6:
-                editTextResult.setText(editTextResult.getText()+"6");
+                editTextResult.setText(editTextResult.getText() + "6");
                 break;
 
             case R.id.button7:
-                editTextResult.setText(editTextResult.getText()+"7");
+                editTextResult.setText(editTextResult.getText() + "7");
                 break;
 
             case R.id.button8:
-                editTextResult.setText(editTextResult.getText()+"8");
+                editTextResult.setText(editTextResult.getText() + "8");
                 break;
 
             case R.id.button9:
-                editTextResult.setText(editTextResult.getText()+"9");
+                editTextResult.setText(editTextResult.getText() + "9");
                 break;
 
             case R.id.buttonStart:
-
+                    CountDownController.startCountDown(this, textViewCountDown, textViewQuestion);
+                    editTextResult.setText("");
+                    textViewQuestion.setText(OperatorController.getQuestion());
+                    content = " " + textViewQuestion.getText().toString();
+                    btnSave.setEnabled(false);
+                    btnStop.setEnabled(true);
+                    btnStart.setEnabled(false);
                 break;
 
             case R.id.buttonMinus:
                 editTextResult.setText(editTextResult.getText()+"-");
                 break;
 
-            case R.id.buttonGenerate:
-                editTextResult.setText("");
-                textViewQuestion.setText(oper.generator());
-                content = " "+textViewQuestion.getText().toString();
-
+            case R.id.buttonStop:
+                textViewCountDown.setText("Please click to Result button to view your result or click to Start button to keep on doing the test");
+                CountDownController.stopCount(this,textViewCountDown);
+                btnSave.setEnabled(true);
+                btnStart.setEnabled(true);
                 break;
 
             case R.id.buttonClear:
-                textViewQuestion.setText("");
                 editTextResult.setText("");
                 break;
 
             case R.id.buttonQuit:
-                finish();
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+               // finish();
                 break;
 
             case R.id.buttonEqual:
+
                 if (editTextResult.getText().length() != 0 && textViewQuestion.getText().length() !=0) {
                     totalcount++;
-                    if (Float.parseFloat(String.valueOf(editTextResult.getText())) == oper.calculation()) {
+                    if (Float.parseFloat(String.valueOf(editTextResult.getText())) == OperatorController.getAnswer()) {
                         Toast.makeText(this, "YOUR ANSWER IS CORRECT!", Toast.LENGTH_LONG).show();
-                        Arrayresult.add("\n"+content +" = " + editTextResult.getText() + "\n" + " Your Answer is Correct."+"\n"+"---------------------------");
+                        mathQuestionsList.add(new MathQuestion(textViewQuestion.getText().toString(),OperatorController.getAnswer(),Float.parseFloat(editTextResult.getText().toString()),Integer.parseInt(textViewCountDown.getText().toString())));
+                        //Arrayresult.add("\n"+content +" = " + editTextResult.getText() + "\n" + " Your Answer is Correct."+"\n"+"---------------------------");
                         textViewQuestion.setText("");
                         editTextResult.setText("");
                         correctcount++;
                     }
                     else {
-                        Toast.makeText(this, "YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " + String.format("%.2f", oper.calculation()), Toast.LENGTH_LONG).show();
-                        Arrayresult.add("\n"+content + " = " + editTextResult.getText() + "\n" + " Your Answer is Wrong!"+"\n"+" Correct answer is: "+String.format("%.2f", oper.calculation())+"\n"+"---------------------------");
+                        Toast.makeText(this, "YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " + String.format("%.2f", OperatorController.getAnswer()), Toast.LENGTH_LONG).show();
+                        mathQuestionsList.add(new MathQuestion(textViewQuestion.getText().toString(),OperatorController.getAnswer(),Float.parseFloat(editTextResult.getText().toString()),Integer.parseInt(textViewCountDown.getText().toString())));
+                        //Arrayresult.add("\n"+content + " = " + editTextResult.getText() + "\n" + " Your Answer is Wrong!"+"\n"+" Correct answer is: "+String.format("%.2f", OperatorController.getAnswer())+"\n"+"---------------------------");
                         textViewQuestion.setText("");
                         editTextResult.setText("");
                     }
@@ -210,13 +222,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonSave:
 
+                break;
+
 
             case R.id.buttonResult:
                 //startActivityForResult(new Intent(getApplicationContext(),Result.class),999);
                 float percent = correctcount/totalcount*100;
-                if (Arrayresult.toString()==null) {
+                if (mathQuestionsList.toString()==null) {
                     Intent intent = new Intent(this, Result.class);
-                    intent.putExtra("tag", Arrayresult);
+                    intent.putExtra("tag", mathQuestionsList);
                     startActivity(intent);
                     break;
                 }
@@ -224,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     Arrayresult.add(" "+percent+"% Correct Answer."+"\n"+" "+(100-percent)+"% Wrong Answer.");
                     Intent intent = new Intent(this, Result.class);
-                    intent.putExtra("tag", Arrayresult);
+                    intent.putExtra("tag", mathQuestionsList);
                     startActivity(intent);
                     break;
                 }
