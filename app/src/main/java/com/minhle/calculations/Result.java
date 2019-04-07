@@ -55,7 +55,6 @@ public class Result extends AppCompatActivity{
     {
         btnBack = findViewById(R.id.buttonBack);
         listViewMathResult = findViewById(R.id.listViewResult);
-        mathResultsList = new ArrayList<Object>();
         textViewPercent = findViewById(R.id.textViewPercent);
 
         mathResultsList = (ArrayList) getIntent().getExtras().getSerializable("tag");
@@ -64,8 +63,8 @@ public class Result extends AppCompatActivity{
         listViewMathResult = findViewById(R.id.listViewResult);
         listViewMathResult.setAdapter(mathResulstArrayAdapter);
 
-        mathResulstArrayAdapter.addAll(mathResultsList);
-        mathResulstArrayAdapter.notifyDataSetChanged();
+//        mathResulstArrayAdapter.addAll(mathResultsList);
+//        mathResulstArrayAdapter.notifyDataSetChanged();
     }
 
     //@Override

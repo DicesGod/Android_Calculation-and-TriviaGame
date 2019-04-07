@@ -10,15 +10,7 @@ public class MathQuestion implements Serializable {
     private String status;
 
     public String getStatus() {
-        if (rightAnswer == userAnswer) {
-            return "Right";
-        }
-        else if (userAnswer == 0.0f) {
-            return "Fail";
-        }
-        else {
-            return "Wrong";
-        }
+        return status;
     }
 
     public String getMathQuestion() {
@@ -33,25 +25,24 @@ public class MathQuestion implements Serializable {
         return time;
     }
 
-    public MathQuestion(String mathQuestion, float rightAnswer, float userAnswer, int time) {
+    public MathQuestion(String mathQuestion, float rightAnswer, float userAnswer, int time, String status) {
         this.mathQuestion = mathQuestion;
         this.rightAnswer = rightAnswer;
         this.userAnswer = userAnswer;
         this.time = time;
+        this.status = status;
     }
 
     @Override
     public String toString() {
         if (rightAnswer == userAnswer) {
-            return "The user enters the right answer in "+time+" seconds"+"\n";
-            //+mathQuestion+"      |       "+userAnswer+"      |       "+time+"        |       "+"Correct";
+            return "The user entered the right answer in "+time+" seconds"+"\n";
         }
         else if (userAnswer == 0.0f) {
             return "The user didn’t answer during 10 seconds";
         }
         else {
-            return "The user answer during "+time+" seconds"+"\n";
-            //+mathQuestion+"      |       "+userAnswer+"      |       "+time+"        |       "+"Fail";
+            return "The user answered during "+time+" seconds"+"\n";
         }
     }
 }

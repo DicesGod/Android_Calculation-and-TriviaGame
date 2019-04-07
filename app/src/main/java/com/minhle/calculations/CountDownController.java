@@ -4,11 +4,21 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import model.MathQuestion;
 
 
 public class CountDownController {
 
     private static CountDownTimer countDownTimer;
+    private static ArrayList<MathQuestion> failAnswerList = new ArrayList<>();
+
+    public static ArrayList<MathQuestion> getFailAnswerList() {
+        return failAnswerList;
+    }
 
     public static void stopCount(final Context context, final TextView textViewCountDown){
         textViewCountDown.setTextColor(Color.BLACK);
@@ -16,7 +26,7 @@ public class CountDownController {
         countDownTimer.cancel();
     }
 
-    public static String startCountDown(final Context context, final TextView textViewCountDown, final TextView textViewQuestion)
+    public static void startCountDown(final Context context, final TextView textViewCountDown, final TextView textViewQuestion)
     {
 
         countDownTimer = new CountDownTimer(10000, 1000) {
@@ -30,15 +40,16 @@ public class CountDownController {
 
                         @Override
                         public void onFinish() {
+                            failAnswerList.add(new MathQuestion(textViewQuestion.getText().toString(), 0.0f,0.0f,0,"Fail"));
                             textViewQuestion.setText(OperatorController.getQuestion());
                             startCountDown(context, textViewCountDown, textViewQuestion);
+                            //Toast.makeText(context,"Test",Toast.LENGTH_LONG).show();
                         }
-
 
                     };
             countDownTimer.start();
-            //countDownTimer.cancel();
-            return "0";
+
+        //return failAnswer;
 
         }
 
