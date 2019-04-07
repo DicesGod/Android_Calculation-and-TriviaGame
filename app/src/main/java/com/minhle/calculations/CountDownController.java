@@ -20,6 +20,10 @@ public class CountDownController {
         return failAnswerList;
     }
 
+    public static void setFailAnswerList() {
+        CountDownController.failAnswerList.removeAll(failAnswerList);
+    }
+
     public static void stopCount(final Context context, final TextView textViewCountDown){
         textViewCountDown.setTextColor(Color.BLACK);
         textViewCountDown.setTextSize(18);
@@ -40,7 +44,7 @@ public class CountDownController {
 
                         @Override
                         public void onFinish() {
-                            failAnswerList.add(new MathQuestion(textViewQuestion.getText().toString(), 0.0f,0.0f,0,"Fail"));
+                            failAnswerList.add(new MathQuestion(textViewQuestion.getText().toString(), OperatorController.getAnswer(),null,0,"Fail"));
                             textViewQuestion.setText(OperatorController.getQuestion());
                             startCountDown(context, textViewCountDown, textViewQuestion);
                             //Toast.makeText(context,"Test",Toast.LENGTH_LONG).show();

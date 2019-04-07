@@ -240,11 +240,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.buttonResult:
-                //startActivityForResult(new Intent(getApplicationContext(),Result.class),999);
                 float percent = correctcount/totalcount*100;
                 if (mathQuestionsList.toString()==null) {
                     Intent intent = new Intent(this, Result.class);
                     intent.putExtra("tag", mathQuestionsList);
+                    CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;
                 }
@@ -253,6 +253,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Arrayresult.add(" "+percent+"% Correct Answer."+"\n"+" "+(100-percent)+"% Wrong Answer.");
                     Intent intent = new Intent(this, Result.class);
                     intent.putExtra("tag", mathQuestionsList);
+                    CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;
                 }

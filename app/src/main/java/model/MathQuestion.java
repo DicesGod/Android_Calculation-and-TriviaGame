@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class MathQuestion implements Serializable {
     private String mathQuestion;
-    private float rightAnswer;
-    private float userAnswer;
+    private Float rightAnswer;
+    private Float userAnswer;
     private int time;
     private String status;
 
@@ -17,7 +17,7 @@ public class MathQuestion implements Serializable {
         return mathQuestion;
     }
 
-    public float getUserAnswer() {
+    public Float getUserAnswer() {
         return userAnswer;
     }
 
@@ -25,7 +25,7 @@ public class MathQuestion implements Serializable {
         return time;
     }
 
-    public MathQuestion(String mathQuestion, float rightAnswer, float userAnswer, int time, String status) {
+    public MathQuestion(String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
         this.mathQuestion = mathQuestion;
         this.rightAnswer = rightAnswer;
         this.userAnswer = userAnswer;
@@ -35,12 +35,13 @@ public class MathQuestion implements Serializable {
 
     @Override
     public String toString() {
-        if (rightAnswer == userAnswer) {
-            return "The user entered the right answer in "+time+" seconds"+"\n";
-        }
-        else if (userAnswer == 0.0f) {
+        if (userAnswer == null) {
             return "The user didn’t answer during 10 seconds";
         }
+        else if (rightAnswer == userAnswer) {
+            return "The user entered the right answer in "+time+" seconds"+"\n";
+        }
+
         else {
             return "The user answered during "+time+" seconds"+"\n";
         }

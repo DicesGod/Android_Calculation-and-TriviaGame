@@ -5,6 +5,14 @@
     <string name="nag_sport">Sport</string>
     <string name="nag_art">Art</string>
 
+    <string name="buttonStart">Start</string>
+    <string name="buttonClear">Clear</string>
+    <string name="buttonStop">Stop</string>
+    <string name="buttonQuit">Quit</string>
+    <string name="buttonSave">Save</string>
+    <string name="buttonResult">Result</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
