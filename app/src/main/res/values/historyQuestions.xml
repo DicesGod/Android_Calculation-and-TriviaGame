@@ -1,2 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="historyQuestion1">Who said Witches should be burned with their cats ?</string>
+    <string name="historyQuestion2">Who was a queen of Russia ?</string>
+    <string name="historyQuestion3">Who was fighting in the French and Indian war ?</string>
+    <string name="historyQuestion4">When did Germany attack Poland ?</string>
+    <string name="historyQuestion5">How many men died in Stalingrad ?</string>
+
+    <string-array name="historyQuestionsList">
+        <item>@string/historyQuestion1</item>
+        <item>@string/historyQuestion2</item>
+        <item>@string/historyQuestion3</item>
+        <item>@string/historyQuestion4</item>
+        <item>@string/historyQuestion5</item>
+    </string-array>
+
+    <string name="historyQuestion1Selection1"></string>
+    <string name="historyQuestion1Selection2"></string>
+    <string name="historyQuestion1Selection3"></string>
+    <string name="historyQuestion1Selection4"></string>
+    <string name="historyQuestion2Selection1"></string>
+    <string name="historyQuestion2Selection2"></string>
+    <string name="historyQuestion2Selection3"></string>
+    <string name="historyQuestion2Selection4"></string>
+    <string name="historyQuestion3Selection1"></string>
+    <string name="historyQuestion3Selection2"></string>
+    <string name="historyQuestion3Selection3"></string>
+    <string name="historyQuestion3Selection4"></string>
+    <string name="historyQuestion4Selection1"></string>
+    <string name="historyQuestion4Selection2"></string>
+    <string name="historyQuestion4Selection3"></string>
+    <string name="historyQuestion4Selection4"></string>
+    <string name="historyQuestion5Selection1"></string>
+    <string name="historyQuestion5Selection2"></string>
+    <string name="historyQuestion5Selection3"></string>
+    <string name="historyQuestion5Selection4"></string>
+
+    <string name="historyAnswer1">Who was fighting in the French and Indian war ?</string>
+    <string name="historyAnswer2">When did Germany attack Poland ?</string>
+    <string name="historyAnswer3">How many men died in Stalingrad ?</string>
+    <string name="historyAnswer4">How many men died in Stalingrad ?</string>
+    <string name="historyAnswer5">How many men died in Stalingrad ?</string>
+
+    <string-array name="historyAnswersList">
+        <item>@string/historyAnswer1</item>
+        <item>@string/historyAnswer2</item>
+        <item>@string/historyAnswer3</item>
+        <item>@string/historyAnswer4</item>
+        <item>@string/historyAnswer5</item>
+    </string-array>
+</resources>

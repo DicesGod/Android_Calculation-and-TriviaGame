@@ -25,6 +25,10 @@ public class MathQuestion implements Serializable {
         return time;
     }
 
+    public Float getRightAnswer() {
+        return rightAnswer;
+    }
+
     public MathQuestion(String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
         this.mathQuestion = mathQuestion;
         this.rightAnswer = rightAnswer;
@@ -36,14 +40,14 @@ public class MathQuestion implements Serializable {
     @Override
     public String toString() {
         if (userAnswer == null) {
-            return "The user didn’t answer during 10 seconds";
+            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
         else if (rightAnswer == userAnswer) {
-            return "The user entered the right answer in "+time+" seconds"+"\n";
+            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
 
         else {
-            return "The user answered during "+time+" seconds"+"\n";
+            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
     }
 }

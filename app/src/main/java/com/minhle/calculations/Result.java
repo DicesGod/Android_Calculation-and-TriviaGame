@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import model.MathQuestion;
+import model.mathQuestionsFileManagement;
 
 public class Result extends AppCompatActivity{
 
@@ -53,11 +54,13 @@ public class Result extends AppCompatActivity{
 
     public void initialize()
     {
+        //mathResultsList = mathQuestionsFileManagement.readFile(this);
+
         btnBack = findViewById(R.id.buttonBack);
         listViewMathResult = findViewById(R.id.listViewResult);
         textViewPercent = findViewById(R.id.textViewPercent);
 
-        mathResultsList = (ArrayList) getIntent().getExtras().getSerializable("tag");
+        //mathResultsList = (ArrayList) getIntent().getExtras().getSerializable("tag");
         mathResulstArrayAdapter = new MathQuestionsAdapter(this, mathResultsList) {
         };
         listViewMathResult = findViewById(R.id.listViewResult);

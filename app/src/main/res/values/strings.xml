@@ -12,7 +12,22 @@
     <string name="buttonSave">Save</string>
     <string name="buttonResult">Result</string>
 
+    <string name="right">"The user entered the right answer in "+time+" seconds</string>
+    <string name="wrong">"The user answered during "+time+" seconds</string>
+    <string name="notanswer">The user didn’t answer during 10 seconds</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="math">Math</string>
+    <string name="history">History</string>
+    <string name="art">Art</string>
+    <string name="sport">Sport</string>
+    <string-array name="navigationBar">
+        <item>@string/math</item>
+        <item>@string/history</item>
+        <item>@string/art</item>
+        <item>@string/sport</item>
+    </string-array>
+
 </resources>
