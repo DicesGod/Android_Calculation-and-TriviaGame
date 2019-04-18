@@ -19,78 +19,68 @@ import java.util.Arrays;
 
 public class mathQuestionsFileManagement {
 
-        static String fileName = "mathQuestion.txt";
-        static  File mathQuestionsFile;
-        static FileOutputStream outputStream;
+    static String fileName = "mathQuestion";
+    static File mathQuestionsFile;
+    static FileOutputStream outputStream;
 
-        public static void checkAndCreateAFile(Context context, ArrayList<MathQuestion> mathQuestionsList) {
-//            try{
-//                if (mathQuestionsFile.exists() == false) {
-                    //File mathQuestionsFile = new File(context.getFilesDir(), fileName);
-//                    //mathQuestionsFile.mkdir();
-            try {
-                mathQuestionsFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-//                    //fileName = mathQuestionsFile.get
-                    //Toast.makeText(context,mathQuestionsList.get(0).toString(),Toast.LENGTH_LONG).show();
-//                }
-//                else {
-                    try {
-
-                        //Formatter f = new Formatter(mathQuestionsFile.getParent());
-                        outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-                        for (int i = 0; i < mathQuestionsList.size();i++) {
-
-                            outputStream.write(mathQuestionsList.get(i).toString().getBytes());
-
-                            Toast.makeText(context,mathQuestionsList.toString(),Toast.LENGTH_LONG).show();
-//                            f.format(mathQuestionsList.get(i).toString());
-//                            f.close();
-
-                        }
-                        outputStream.close();
-                        Toast.makeText(context,mathQuestionsList.toString(),Toast.LENGTH_LONG).show();
-//                    } catch (FileNotFoundException e) {
-//                        Toast.makeText(context, e.toString(),Toast.LENGTH_LONG).show();
-//                    }
-
-               // }
-            } catch (IOException e) {
-                    e.printStackTrace();
-            }
-        //}
-
-
-//        public static ArrayList<MathQuestion> readFile(Context context){
-//            ArrayList<MathQuestion> mathQuestionsList = new ArrayList<>();
-//            ArrayList<String> temporaryarray;
-//            String line = "";
-//
-//            try {
-//                mathQuestionsFile = new File(mathQuestionsFile.getParent());
-//                Scanner reader = new Scanner(mathQuestionsFile);
-//                while(reader.hasNextLine()) {
-//                    line = reader.nextLine();
-//                    temporaryarray = new ArrayList(Arrays.asList(line.split(",")));
-//                    mathQuestionsList.add(new MathQuestion(temporaryarray.get(0),
-//                            null,
-//                            Float.parseFloat(temporaryarray.get(2)),
-//                            Integer.parseInt(temporaryarray.get(3)),
-//                            temporaryarray.get(4)));
-//                   // content += sc.nextLine()+"\r\n";
-//                }
-//
-//
-//                reader.close();
-//            } catch (FileNotFoundException e) {
-//                Toast.makeText(context,"Failed to read the file!",Toast.LENGTH_LONG).show();
-//            }
-//
-//            return mathQuestionsList;
-//
-     }
+    public static void deleteFile(Context context){
+        mathQuestionsFile = new File(context.getFilesDir(), fileName);
+        mathQuestionsFile.delete();
     }
 
+    public static void checkAndCreateAFile(Context context, ArrayList<MathQuestion> mathQuestionsList) {
+        try {
+            mathQuestionsFile = new File(context.getFilesDir(), fileName);
+            mathQuestionsFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            outputStream = context.openFileOutput(fileName, Context.MODE_APPEND);
+            for (int i = 0; i < mathQuestionsList.size(); i++) {
+                outputStream.write(mathQuestionsList.get(i).toString().getBytes());
+            }
+            outputStream.close();
+            Toast.makeText(context, mathQuestionsList.toString(), Toast.LENGTH_LONG).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    public static ArrayList<MathQuestion> readFile(Context context) {
+        ArrayList<MathQuestion> mathQuestionsList = new ArrayList<>();
+        ArrayList<String> temporaryarray;
+        String line = "";
+
+        try {
+            mathQuestionsFile = new File(context.getFilesDir(), fileName);
+            Scanner reader = new Scanner(mathQuestionsFile);
+            while (reader.hasNextLine()) {
+                line = reader.nextLine();
+                temporaryarray = new ArrayList(Arrays.asList(line.split(",")));
+                mathQuestionsList.add(new MathQuestion(temporaryarray.get(0),
+                        temporaryarray.get(1),
+                        null,
+                        Float.parseFloat(temporaryarray.get(3)),
+                        Integer.parseInt(temporaryarray.get(4)),
+                        temporaryarray.get(5)));
+                //(String result,String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status)
+            }
+
+
+            reader.close();
+        } catch (FileNotFoundException e) {
+            Toast.makeText(context, "Failed to read the file!", Toast.LENGTH_LONG).show();
+        }
+
+        return mathQuestionsList;
+
+    }
+
+}
 

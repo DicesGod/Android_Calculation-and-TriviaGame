@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class MathQuestion implements Serializable {
+    private String result;
     private String mathQuestion;
     private Float rightAnswer;
     private Float userAnswer;
@@ -11,6 +12,14 @@ public class MathQuestion implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        result = result;
     }
 
     public String getMathQuestion() {
@@ -29,7 +38,8 @@ public class MathQuestion implements Serializable {
         return rightAnswer;
     }
 
-    public MathQuestion(String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
+    public MathQuestion(String result,String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
+        this.result = result;
         this.mathQuestion = mathQuestion;
         this.rightAnswer = rightAnswer;
         this.userAnswer = userAnswer;
@@ -40,14 +50,14 @@ public class MathQuestion implements Serializable {
     @Override
     public String toString() {
         if (userAnswer == null) {
-            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
+            return result+","+mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
         else if (rightAnswer == userAnswer) {
-            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
+            return result+","+mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
 
         else {
-            return mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
+            return result+","+mathQuestion+","+rightAnswer+","+userAnswer+","+time+","+status+"\n";
         }
     }
 }

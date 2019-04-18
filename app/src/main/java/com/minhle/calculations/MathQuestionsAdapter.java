@@ -27,13 +27,13 @@ public class MathQuestionsAdapter extends ArrayAdapter<MathQuestion> {
         // Lookup view for data population
         TextView textViewmathResult = (TextView) convertView.findViewById(R.id.showResult);
         TextView textViewmathQuestion = (TextView) convertView.findViewById(R.id.columnQuestion);
-        TextView textViewmathAnser = (TextView) convertView.findViewById(R.id.columnAnswer);
+        TextView textViewmathAnswer = (TextView) convertView.findViewById(R.id.columnAnswer);
         TextView textViewmathTime = (TextView) convertView.findViewById(R.id.columnTime);
         TextView textViewmathStatus = (TextView) convertView.findViewById(R.id.columnStatus);
         // Populate the data into the template view using the data object
-        textViewmathResult.setText(MathQuestion.toString());
+        textViewmathResult.setText(MathQuestion.getResult());
         textViewmathQuestion.setText(MathQuestion.getMathQuestion());
-        textViewmathAnser.setText(String.valueOf(MathQuestion.getUserAnswer()));
+        textViewmathAnswer.setText(String.valueOf(MathQuestion.getUserAnswer()));
         textViewmathTime.setText(String.valueOf(MathQuestion.getTime()));
         textViewmathStatus.setText(MathQuestion.getStatus());
         // Return the completed view to render on screen

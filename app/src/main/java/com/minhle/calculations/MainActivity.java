@@ -185,6 +185,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonStart:
+                getMathQuestionsListTemp.removeAll(getMathQuestionsListTemp);
+                CountDownController.getFailAnswerList().removeAll(CountDownController.getFailAnswerList());
                 CountDownController.startCountDown(this, textViewCountDown, textViewQuestion);
                     editTextResult.setText("");
                     textViewQuestion.setText(OperatorController.getQuestion());
@@ -195,18 +197,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonMinus:
+                mathQuestionsFileManagement.deleteFile(this);
                 editTextResult.setText(editTextResult.getText()+"-");
                 break;
 
             case R.id.buttonStop:
                 textViewCountDown.setText("Please click to Result button to view your result or click to Start button to keep on doing the test");
                 CountDownController.stopCount(this,textViewCountDown);
+                textViewQuestion.setText("");
+                editTextResult.setText("");
                 btnSave.setEnabled(true);
                 btnStart.setEnabled(true);
-                break;
-
-            case R.id.buttonClear:
-                editTextResult.setText("");
                 break;
 
             case R.id.buttonQuit:
@@ -223,7 +224,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     totalcount++;
                     if (Float.parseFloat(String.valueOf(editTextResult.getText())) == OperatorController.getAnswer()) {
                         Toast.makeText(this, "YOUR ANSWER IS CORRECT!", Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion(textViewQuestion.getText().toString(),
+                        getMathQuestionsListTemp.add(new MathQuestion("The user enters the right answer in "+textViewCountDown.getText()+" seconds",
+                                textViewQuestion.getText().toString(),
                                 OperatorController.getAnswer(),
                                 Float.parseFloat(editTextResult.getText().toString()),
                                 Integer.parseInt(textViewCountDown.getText().toString()),
@@ -234,7 +236,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     else {
                         Toast.makeText(this, "YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " + String.format("%.2f", OperatorController.getAnswer()), Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion(textViewQuestion.getText().toString(),
+                        getMathQuestionsListTemp.add(new MathQuestion("The user answer during "+textViewCountDown.getText()+" seconds",
+                                textViewQuestion.getText().toString(),
                                 OperatorController.getAnswer(),
                                 Float.parseFloat(editTextResult.getText().toString()),
                                 Integer.parseInt(textViewCountDown.getText().toString()),
@@ -254,6 +257,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Toast.makeText(this,"Your test has been saved successfully!",Toast.LENGTH_LONG).show();
                 btnStop.setEnabled(false);
                 btnSave.setEnabled(false);
+
                 break;
 
 

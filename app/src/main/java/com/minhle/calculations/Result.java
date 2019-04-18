@@ -54,13 +54,11 @@ public class Result extends AppCompatActivity{
 
     public void initialize()
     {
-        //mathResultsList = mathQuestionsFileManagement.readFile(this);
+        mathResultsList = mathQuestionsFileManagement.readFile(this);
 
         btnBack = findViewById(R.id.buttonBack);
         listViewMathResult = findViewById(R.id.listViewResult);
         textViewPercent = findViewById(R.id.textViewPercent);
-
-        //mathResultsList = (ArrayList) getIntent().getExtras().getSerializable("tag");
         mathResulstArrayAdapter = new MathQuestionsAdapter(this, mathResultsList) {
         };
         listViewMathResult = findViewById(R.id.listViewResult);
@@ -90,9 +88,6 @@ public class Result extends AppCompatActivity{
 
     public void back(View view){
         Intent intent = new Intent(this, MainActivity.class);
-//        //intent.putExtra("key",listresult);
-//        //onSaveInstanceState(savedInstanceState);
         startActivity(intent);
-//        finish();
     }
 }
