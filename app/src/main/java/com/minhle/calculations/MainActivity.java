@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import model.History;
 import model.MathQuestion;
 import model.Navigation;
 import model.mathQuestionsFileManagement;
@@ -220,15 +221,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonEqual:
                 CountDownController.stopCount(this,textViewCountDown);
                 CountDownController.startCountDown(this, textViewCountDown, textViewQuestion);
+                int eslapsedTime = 10 - Integer.parseInt(textViewCountDown.getText().toString());
                 if (editTextResult.getText().length() != 0 && textViewQuestion.getText().length() !=0) {
                     totalcount++;
                     if (Float.parseFloat(String.valueOf(editTextResult.getText())) == OperatorController.getAnswer()) {
                         Toast.makeText(this, "YOUR ANSWER IS CORRECT!", Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion("The user enters the right answer in "+textViewCountDown.getText()+" seconds",
+                        getMathQuestionsListTemp.add(new MathQuestion("The user enters the right answer in "+eslapsedTime+" seconds",
                                 textViewQuestion.getText().toString(),
                                 OperatorController.getAnswer(),
                                 Float.parseFloat(editTextResult.getText().toString()),
-                                Integer.parseInt(textViewCountDown.getText().toString()),
+                                eslapsedTime,
                                 "Correct"));
                         textViewQuestion.setText(OperatorController.getQuestion());
                         editTextResult.setText("");
@@ -236,11 +238,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     else {
                         Toast.makeText(this, "YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " + String.format("%.2f", OperatorController.getAnswer()), Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion("The user answer during "+textViewCountDown.getText()+" seconds",
+                        getMathQuestionsListTemp.add(new MathQuestion("The user answers during "+eslapsedTime+" seconds",
                                 textViewQuestion.getText().toString(),
                                 OperatorController.getAnswer(),
                                 Float.parseFloat(editTextResult.getText().toString()),
-                                Integer.parseInt(textViewCountDown.getText().toString()),
+                                eslapsedTime,
                                 "Wrong"));
                         textViewQuestion.setText(OperatorController.getQuestion());
                         editTextResult.setText("");
@@ -253,11 +255,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonSave:
                 mathQuestionsList.addAll(CountDownController.getFailAnswerList());
                 mathQuestionsList.addAll(getMathQuestionsListTemp);
-                mathQuestionsFileManagement.checkAndCreateAFile(this,mathQuestionsList);
+                mathQuestionsFileManagement.writeMathQuestionsFile(this,mathQuestionsList);
                 //Toast.makeText(this,"Your test has been saved successfully!",Toast.LENGTH_LONG).show();
                 btnStop.setEnabled(false);
                 btnSave.setEnabled(false);
 
+                break;
+
+            case R.id.buttonClear:
+                editTextResult.setText("");
                 break;
 
 

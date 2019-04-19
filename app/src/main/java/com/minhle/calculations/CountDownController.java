@@ -44,16 +44,13 @@ public class CountDownController {
 
                         @Override
                         public void onFinish() {
-                            failAnswerList.add(new MathQuestion("The user didn’t answer during 10 seconds",textViewQuestion.getText().toString(), OperatorController.getAnswer(),null,0,"Fail"));
+                            failAnswerList.add(new MathQuestion("The user didn’t answer during 10 seconds",textViewQuestion.getText().toString(), OperatorController.getAnswer(),null,10,"Fail"));
                             textViewQuestion.setText(OperatorController.getQuestion());
                             startCountDown(context, textViewCountDown, textViewQuestion);
-                            //Toast.makeText(context,"Test",Toast.LENGTH_LONG).show();
                         }
 
                     };
             countDownTimer.start();
-
-        //return failAnswer;
 
         }
 

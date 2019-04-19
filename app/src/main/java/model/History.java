@@ -1,10 +1,12 @@
-package com.minhle.calculations;
+package model;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.minhle.calculations.R;
 
 
 public class History extends AppCompatActivity implements View.OnClickListener{

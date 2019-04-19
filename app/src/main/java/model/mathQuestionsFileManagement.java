@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class mathQuestionsFileManagement {
 
-    static String fileName = "mathQuestion";
+    static String fileName = "mathQuestions";
     static File mathQuestionsFile;
     static FileOutputStream outputStream;
 
@@ -28,7 +28,7 @@ public class mathQuestionsFileManagement {
         mathQuestionsFile.delete();
     }
 
-    public static void checkAndCreateAFile(Context context, ArrayList<MathQuestion> mathQuestionsList) {
+    public static void writeMathQuestionsFile(Context context, ArrayList<MathQuestion> mathQuestionsList) {
         try {
             mathQuestionsFile = new File(context.getFilesDir(), fileName);
             mathQuestionsFile.createNewFile();
@@ -52,7 +52,7 @@ public class mathQuestionsFileManagement {
     }
 
 
-    public static ArrayList<MathQuestion> readFile(Context context) {
+    public static ArrayList<MathQuestion> readMathQuestionsFile(Context context) {
         ArrayList<MathQuestion> mathQuestionsList = new ArrayList<>();
         ArrayList<String> temporaryarray;
         String line = "";
@@ -63,13 +63,24 @@ public class mathQuestionsFileManagement {
             while (reader.hasNextLine()) {
                 line = reader.nextLine();
                 temporaryarray = new ArrayList(Arrays.asList(line.split(",")));
-                mathQuestionsList.add(new MathQuestion(temporaryarray.get(0),
-                        temporaryarray.get(1),
-                        null,
-                        Float.parseFloat(temporaryarray.get(3)),
-                        Integer.parseInt(temporaryarray.get(4)),
-                        temporaryarray.get(5)));
-                //(String result,String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status)
+                //check if useranser is null or not
+                if(temporaryarray.get(3).equals("null")) {
+                    mathQuestionsList.add(new MathQuestion(temporaryarray.get(0),
+                            temporaryarray.get(1),
+                            null,
+                            null,
+                            Integer.parseInt(temporaryarray.get(4)),
+                            temporaryarray.get(5)));
+                }
+                else
+                {
+                    mathQuestionsList.add(new MathQuestion(temporaryarray.get(0),
+                            temporaryarray.get(1),
+                            null,
+                            Float.parseFloat(temporaryarray.get(3)),
+                            Integer.parseInt(temporaryarray.get(4)),
+                            temporaryarray.get(5)));
+                }
             }
 
 
@@ -80,6 +91,48 @@ public class mathQuestionsFileManagement {
 
         return mathQuestionsList;
 
+    }
+
+    public static String calculateResult(ArrayList<MathQuestion> mathQuestionsList) {
+        float totalQuestions = mathQuestionsList.size();
+        float totalAnsweredQuestions = 0;
+        float totalDuration = 10 * mathQuestionsList.size();;
+        float elapsedTime = 0;
+        float correctAnswers = 0;
+        float faiAnswers = 0;
+        float percentCorrectAnswer = 0;
+        float percentfailAnswer = 0;
+        float velocity = 0;
+
+
+        for (MathQuestion mathQuestion: mathQuestionsList)
+        {
+            if(mathQuestion.getStatus() != "Fail"){
+                totalAnsweredQuestions ++;
+            }
+            elapsedTime = elapsedTime+mathQuestion.getTime();
+
+            if(mathQuestion.getStatus() == "Correct"){
+
+                correctAnswers++;
+            }
+            else if (mathQuestion.getStatus() == "Fail")
+            {
+                faiAnswers++;
+            }
+        }
+
+        percentCorrectAnswer = correctAnswers/totalQuestions*100;
+        percentfailAnswer = faiAnswers/totalQuestions*100;
+        velocity = elapsedTime/totalDuration;
+
+        return "Total Questions: "+totalQuestions+"\n"
+                +"Total Answered Questions: "+totalAnsweredQuestions+"\n"
+                +"Total Duration: "+totalDuration+"\n"
+                +"Total Elapsed Time: "+elapsedTime+"\n"
+                +"% correct answer: "+correctAnswers+"%"+"\n"
+                +"% fail answer: "+faiAnswers+"%"+"\n"
+                +"Velocity: "+velocity;
     }
 
 }

@@ -10,6 +10,15 @@ public class MathQuestion implements Serializable {
     private int time;
     private String status;
 
+    public MathQuestion(String result,String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
+        this.result = result;
+        this.mathQuestion = mathQuestion;
+        this.rightAnswer = rightAnswer;
+        this.userAnswer = userAnswer;
+        this.time = time;
+        this.status = status;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -36,15 +45,6 @@ public class MathQuestion implements Serializable {
 
     public Float getRightAnswer() {
         return rightAnswer;
-    }
-
-    public MathQuestion(String result,String mathQuestion, Float rightAnswer, Float userAnswer, int time, String status) {
-        this.result = result;
-        this.mathQuestion = mathQuestion;
-        this.rightAnswer = rightAnswer;
-        this.userAnswer = userAnswer;
-        this.time = time;
-        this.status = status;
     }
 
     @Override

@@ -1,18 +1,14 @@
 package model;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import com.minhle.calculations.History;
+
 import com.minhle.calculations.MainActivity;
 import com.minhle.calculations.R;
 
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class Navigation extends AppCompatActivity {
 

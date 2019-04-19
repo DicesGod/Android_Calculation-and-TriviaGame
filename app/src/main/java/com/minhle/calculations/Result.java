@@ -54,7 +54,7 @@ public class Result extends AppCompatActivity{
 
     public void initialize()
     {
-        mathResultsList = mathQuestionsFileManagement.readFile(this);
+        mathResultsList = mathQuestionsFileManagement.readMathQuestionsFile(this);
 
         btnBack = findViewById(R.id.buttonBack);
         listViewMathResult = findViewById(R.id.listViewResult);
@@ -63,7 +63,7 @@ public class Result extends AppCompatActivity{
         };
         listViewMathResult = findViewById(R.id.listViewResult);
         listViewMathResult.setAdapter(mathResulstArrayAdapter);
-
+        textViewPercent.setText(mathQuestionsFileManagement.calculateResult(mathResultsList));
 //        mathResulstArrayAdapter.addAll(mathResultsList);
 //        mathResulstArrayAdapter.notifyDataSetChanged();
     }

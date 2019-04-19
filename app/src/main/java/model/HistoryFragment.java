@@ -1,4 +1,4 @@
-package com.minhle.calculations;
+package model;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.minhle.calculations.R;
 
 import java.util.ArrayList;
 

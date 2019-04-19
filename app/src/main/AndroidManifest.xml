@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Art" />
         <activity android:name=".Sport" />
-        <activity android:name=".History" />
+        <activity android:name="model.History" />
 
 
 
