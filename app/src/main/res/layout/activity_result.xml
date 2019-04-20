@@ -16,6 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewPercent"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 
     <TextView
@@ -27,7 +28,9 @@
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listViewResult" />
+        app:layout_constraintTop_toBottomOf="@id/listViewResult"
+        android:textStyle="italic"
+        android:textColor="@color/colorPrimary"/>
 
     <ListView
         android:id="@+id/listViewResult"

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import model.Navigation;
 import model.TriviaFragment;
 import model.TriviaQuestion;
 import model.TriviaQuestionsFileManagement;
@@ -30,8 +29,6 @@ public class TriviaGameActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_triviagame);
         initialize();
-
-        Navigation nag = new Navigation();
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

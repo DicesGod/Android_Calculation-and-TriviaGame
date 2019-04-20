@@ -18,7 +18,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import model.MathQuestion;
-import model.Navigation;
 import model.MathQuestionsFileManagement;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
-        Navigation nag = new Navigation();
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                @Override
@@ -55,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    switch (item.getItemId()) {
                        case R.id.nag_math:
                            MainActivity.this.startActivity(new Intent(MainActivity.this, MainActivity.class));
+
                            break;
 
                        case R.id.nag_history:
@@ -204,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonMinus:
-                MathQuestionsFileManagement.deleteFile(this);
+                //MathQuestionsFileManagement.deleteFile(this);
                 editTextResult.setText(editTextResult.getText()+"-");
                 break;
 

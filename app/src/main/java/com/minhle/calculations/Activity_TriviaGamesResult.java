@@ -45,7 +45,7 @@ public class Activity_TriviaGamesResult extends AppCompatActivity implements Vie
         triviaGameResultsList = (ArrayList) getIntent().getExtras().getSerializable("triviaresult");
         for (TriviaGameResult triviaGameResult: triviaGameResultsList) {
             triviaGameStringResultsList.add(triviaGameResult.getResult());
-            if (triviaGameResult.getStatus().equals("Right"))
+            if (triviaGameResult.getStatus().equals("right"))
             {
                 countRight++;
             }

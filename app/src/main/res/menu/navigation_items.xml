@@ -7,12 +7,14 @@
         android:icon="@drawable/math"
         android:title="@string/nag_math"
         app:showAsAction="withText"
+
         />
     <item
         android:id="@+id/nag_history"
         android:icon="@drawable/baseline_history_black_18dp"
         android:title="@string/nag_history"
-        app:showAsAction="withText"/>
+        app:showAsAction="withText"
+        />
     <item
         android:id="@+id/nag_sport"
         android:icon="@drawable/sport"

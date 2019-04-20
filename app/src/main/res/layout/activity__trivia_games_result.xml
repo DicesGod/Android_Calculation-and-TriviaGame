@@ -30,23 +30,17 @@
         android:layout_width="match_parent"
         android:layout_height="493dp"
         android:baselineAligned="false"
-        android:orientation="horizontal">
-
-        <ListView
-            android:id="@+id/listViewTriviaGameResult"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -55,7 +49,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/percentright"
+                        android:text=" @string/percentright"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -65,7 +59,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="textStart"
-                        android:textStyle="italic" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="italic"
+                        android:textSize="18sp"/>
                 </TableRow>
 
                 <TableRow
@@ -75,7 +71,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/percentfail"
+                        android:text=" @string/percentfail"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -85,11 +81,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="textStart"
-                        android:textStyle="italic" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="italic"
+                        android:textSize="18sp"/>
                 </TableRow>
 
 
             </TableLayout>
+
+            <ListView
+                android:id="@+id/listViewTriviaGameResult"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </LinearLayout>
 
     </LinearLayout>
