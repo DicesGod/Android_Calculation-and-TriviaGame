@@ -15,14 +15,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import model.MathQuestion;
 import model.Navigation;
 import model.MathQuestionsFileManagement;
-import model.TriviaQuestion;
-import model.TriviaQuestionsFileManagement;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                @Override
                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                   Intent intent = new Intent(MainActivity.this,TriviaGame.class);
+                   Intent intent = new Intent(MainActivity.this, TriviaGameActivity.class);
 
                    switch (item.getItemId()) {
                        case R.id.nag_math:
@@ -214,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonStop:
-                textViewCountDown.setText("Please click to Result button to view your result or click to Start button to keep on doing the test");
+                textViewCountDown.setText("Please click to MathResult button to view your result or click to Start button to keep on doing the test");
                 CountDownController.stopCount(this,textViewCountDown);
                 textViewQuestion.setText("");
                 editTextResult.setText("");
@@ -281,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonResult:
                 float percent = correctcount/totalcount*100;
                 if (mathQuestionsList.toString()==null) {
-                    Intent intent = new Intent(this, Result.class);
+                    Intent intent = new Intent(this, MathResult.class);
                     CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;
@@ -289,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else
                 {
                     Arrayresult.add(" "+percent+"% Correct Answer."+"\n"+" "+(100-percent)+"% Wrong Answer.");
-                    Intent intent = new Intent(this, Result.class);
+                    Intent intent = new Intent(this, MathResult.class);
                     CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;

@@ -112,26 +112,22 @@ public class MathQuestionsFileManagement {
             }
             elapsedTime = elapsedTime+mathQuestion.getTime();
 
-            if(mathQuestion.getStatus() == "Correct"){
+            if(mathQuestion.getStatus().equals("Correct")){
 
                 correctAnswers++;
-            }
-            else if (mathQuestion.getStatus() == "Fail")
-            {
-                faiAnswers++;
             }
         }
 
         percentCorrectAnswer = correctAnswers/totalQuestions*100;
-        percentfailAnswer = faiAnswers/totalQuestions*100;
+        percentfailAnswer = 100-percentCorrectAnswer;
         velocity = elapsedTime/totalDuration;
 
         return "Total Questions: "+totalQuestions+"\n"
                 +"Total Answered Questions: "+totalAnsweredQuestions+"\n"
                 +"Total Duration: "+totalDuration+"\n"
                 +"Total Elapsed Time: "+elapsedTime+"\n"
-                +"% correct answer: "+correctAnswers+"%"+"\n"
-                +"% fail answer: "+faiAnswers+"%"+"\n"
+                +"% correct answer: "+percentCorrectAnswer+"%"+"\n"
+                +"% fail answer: "+percentfailAnswer+"%"+"\n"
                 +"Velocity: "+velocity;
     }
 

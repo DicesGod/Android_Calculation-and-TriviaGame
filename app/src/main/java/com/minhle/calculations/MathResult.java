@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import model.MathQuestionsFileManagement;
 
-public class Result extends AppCompatActivity{
+public class MathResult extends AppCompatActivity{
 
     Button btnBack;
     TextView textViewResult;

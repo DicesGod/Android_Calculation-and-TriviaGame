@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TriviaGame">
+    tools:context=".TriviaGameActivity">
 
     <TextView
         android:id="@+id/textViewWelcome"
@@ -25,30 +25,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="57dp"
         app:layout_constraintTop_toBottomOf="@id/textViewWelcome"
-        app:layout_constraintBottom_toTopOf="@id/btnAnswer">
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        >
     </FrameLayout>
 
-
-    <Button
-        android:id="@+id/btnAnswer"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        app:menu="@menu/navigation_items"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:text="Answer"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnFinish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/triviagame_fragment" />
-
-    <Button
-        android:id="@+id/btnFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="160dp"
-        android:text="Finish"
-        app:layout_constraintEnd_toStartOf="@+id/btnAnswer"
-        app:layout_constraintTop_toBottomOf="@id/triviagame_fragment" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </android.support.constraint.ConstraintLayout>

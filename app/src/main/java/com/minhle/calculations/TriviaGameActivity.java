@@ -1,22 +1,13 @@
 package com.minhle.calculations;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.minhle.calculations.R;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import model.Navigation;
@@ -25,14 +16,12 @@ import model.TriviaQuestion;
 import model.TriviaQuestionsFileManagement;
 
 
-public class TriviaGame extends AppCompatActivity{
+public class TriviaGameActivity extends AppCompatActivity{
 
     TextView textViewWelcome;
     ArrayList<TriviaQuestion> triviaQuestionList;
     static int i = 1, j = 4;
     String filename = "Questions.txt";
-    int index = 0;
-    Bundle bundle = new Bundle();
     BottomNavigationView menu;
 
 
@@ -47,8 +36,8 @@ public class TriviaGame extends AppCompatActivity{
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent1 = new Intent(TriviaGame.this,MainActivity.class);
-                Intent intent2 = new Intent(TriviaGame.this,TriviaGame.class);
+                Intent intent1 = new Intent(TriviaGameActivity.this,MainActivity.class);
+                Intent intent2 = new Intent(TriviaGameActivity.this, TriviaGameActivity.class);
 
                 switch (item.getItemId()) {
                     case R.id.nag_math:
@@ -87,9 +76,8 @@ public class TriviaGame extends AppCompatActivity{
         triviaQuestionList = TriviaQuestionsFileManagement.readTriviaQuestionsFile(this,filename,section);
 
         //send data from the activity -> Fragment
-
-        bundle.putSerializable("triviaQuestion",triviaQuestionList.get(index));
-        index++;
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("triviaQuestion",triviaQuestionList);
         //Create an instance of Fragment class
         TriviaFragment triviaFragment = new TriviaFragment();
         triviaFragment.setArguments(bundle);

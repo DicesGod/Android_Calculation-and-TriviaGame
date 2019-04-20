@@ -1,15 +1,15 @@
-Art,Who is credited as the designer of the many statues which decorated the Parthenon?,A: Hesiod,B: Praxitele,C: Scopas,D: Phidias,d
-Art,What artist was struck in the face with a mallet by an envious rival - disfiguring him for life?,A: Rembrandt,B: Raphael,C: Michelangelo,D: Titian,c
-Art,What artist is best known for a painting of his mother?,A: Francisco Goya,B: James Abbot Mcneil Whistler,C: Johannes Vermeer,D: Pierre-Auguste Renoir,b
-Art,What art movement was Yoko Ono associated with during the 1960s?,A: Futurism,B: Post-impressionism,C: Dadaism,D: Fluxus,d
-Art,How many paintings did Vincent Van Gogh sell during his lifetime?,A: 193,B: 1,C: 842,D:27,b
-History,Who said "Witches should be burned with their cat's" ?,A: Innocent Pope I,B: King George,C: Shakespeare,D: Queen Victoria,a
-History,Who was a queen of Russia?,A: Cleopatra,B: Catherine the great,C: Victoria I,D: Jenny the I,b
-History,Who was fighting in the French and Indian war?,A: The French against the Indians,B: The French and the Indians against England,C: The French against England,D: The Indians and England against the French,b
-History,When did Germany attack Poland ?,A: September 1 1939,B: December 7 1941,C: June 6 1944,D: August 6 1945,a
-History,How many men died in Stalingrad ?,A: 50 000,B: 250 000,C: 2000,D: 30 000,b
-Sport,With 15 921 runs - which international cricketer holds the record for the most Test runs?,A: Sachin Tendulkar,B: Ricky Ponting,C: Brian Lara,D: Viv Richards,a
-Sport,How many players have won 3 Brownlow medal awards - the highest individual honour in Australian Rules football?,A; 1,B: 2,C: 3,D: 4,d
-Sport,At 9.58 seconds Usain Bolt holds the record for the fastest time in the 100 metre sprint - but which sprinter holds the female record with 10.49 seconds?,A: Marion Jones,B: Shelly-Ann Fraser-Pryce,C: Florence Griffith-Joyner,D: Carmelita Jeter,c
-Sport,U.S Baseball star Babe Ruth played for the Boston Red Sox - New York Yankees and which other baseball team?,A: Boston Braves,B: Los Angeles Dodgers,C: Philadelphia Phillies,D: Cincinnati Reds,a
-Sport,Which nation won Gold in women’s hockey at the 2012 London Olympics?,A: Netherlands,B: Great Britain,C: New Zealand,D: U.S.A,a
+Art,Who is credited as the designer of the many statues which decorated the Parthenon?,A: Hesiod,B: Praxitele,C: Scopas,D: Phidias,D: Phidias
+Art,What artist was struck in the face with a mallet by an envious rival - disfiguring him for life?,A: Rembrandt,B: Raphael,C: Michelangelo,D: Titian,C: Michelangelo
+Art,What artist is best known for a painting of his mother?,A: Francisco Goya,B: James Abbot Mcneil Whistler,C: Johannes Vermeer,D: Pierre-Auguste Renoir,B: James Abbot Mcneil Whistler
+Art,What art movement was Yoko Ono associated with during the 1960s?,A: Futurism,B: Post-impressionism,C: Dadaism,D: Fluxus,D: Fluxus
+Art,How many paintings did Vincent Van Gogh sell during his lifetime?,A: 193,B: 1,C: 842,D:27,B: 1
+History,Who said "Witches should be burned with their cat's" ?,A: Innocent Pope I,B: King George,C: Shakespeare,D: Queen Victoria,A: Innocent Pope I
+History,Who was a queen of Russia?,A: Cleopatra,B: Catherine the great,C: Victoria I,D: Jenny the I,B: Catherine the great
+History,Who was fighting in the French and Indian war?,A: The French against the Indians,B: The French and the Indians against England,C: The French against England,D: The Indians and England against the French,B: The French and the Indians against England
+History,When did Germany attack Poland ?,A: September 1 1939,B: December 7 1941,C: June 6 1944,D: August 6 1945,A: September 1 1939
+History,How many men died in Stalingrad ?,A: 50 000,B: 250 000,C: 2000,D: 30 000,B: 250 000
+Sport,With 15 921 runs - which international cricketer holds the record for the most Test runs?,A: Sachin Tendulkar,B: Ricky Ponting,C: Brian Lara,D: Viv Richards,A: Sachin Tendulkar
+Sport,How many players have won 3 Brownlow medal awards - the highest individual honour in Australian Rules football?,A; 1,B: 2,C: 3,D: 4,D: 4
+Sport,At 9.58 seconds Usain Bolt holds the record for the fastest time in the 100 metre sprint - but which sprinter holds the female record with 10.49 seconds?,A: Marion Jones,B: Shelly-Ann Fraser-Pryce,C: Florence Griffith-Joyner,D: Carmelita Jeter,C: Florence Griffith-Joyner
+Sport,U.S Baseball star Babe Ruth played for the Boston Red Sox - New York Yankees and which other baseball team?,A: Boston Braves,B: Los Angeles Dodgers,C: Philadelphia Phillies,D: Cincinnati Reds,A: Boston Braves
+Sport,Which nation won Gold in women’s hockey at the 2012 London Olympics?,A: Netherlands,B: Great Britain,C: New Zealand,D: U.S.A,A: Netherlands
