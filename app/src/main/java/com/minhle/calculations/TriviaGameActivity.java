@@ -1,9 +1,14 @@
 package com.minhle.calculations;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,18 +19,21 @@ import com.minhle.calculations.R;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import model.Navigation;
 import model.TriviaFragment;
 import model.TriviaQuestion;
 import model.TriviaQuestionsFileManagement;
 
 
-public class TriviaGame extends AppCompatActivity implements View.OnClickListener {
+public class TriviaGame extends AppCompatActivity{
 
     TextView textViewWelcome;
-    Button btnAnswer,btnFinish;
     ArrayList<TriviaQuestion> triviaQuestionList;
     static int i = 1, j = 4;
     String filename = "Questions.txt";
+    int index = 0;
+    Bundle bundle = new Bundle();
+    BottomNavigationView menu;
 
 
     @Override
@@ -33,34 +41,65 @@ public class TriviaGame extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_triviagame);
         initialize();
+
+        Navigation nag = new Navigation();
+
+        menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent1 = new Intent(TriviaGame.this,MainActivity.class);
+                Intent intent2 = new Intent(TriviaGame.this,TriviaGame.class);
+
+                switch (item.getItemId()) {
+                    case R.id.nag_math:
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.nag_history:
+                        intent2.putExtra("tag", "History");
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.nag_art:
+                        intent2.putExtra("tag", "Art");
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.nag_sport:
+                        intent2.putExtra("tag", "Sport");
+                        startActivity(intent2);
+                        break;
+
+                }
+                return false;
+            }
+        });
+
+
     }
 
     public void initialize(){
+        menu = findViewById(R.id.navigation);
         textViewWelcome = findViewById(R.id.textViewWelcome);
         String section = (String) getIntent().getExtras().getSerializable("tag");
         textViewWelcome.setText("Welcome to Trivia Game: "+section+"!");
-        btnAnswer = findViewById(R.id.btnAnswer);
-        btnFinish = findViewById(R.id.btnFinish);
-        btnAnswer.setOnClickListener(this);
-        btnFinish.setOnClickListener(this);
-        btnFinish.setEnabled(false);
-
         triviaQuestionList = new ArrayList<TriviaQuestion>();
         triviaQuestionList = TriviaQuestionsFileManagement.readTriviaQuestionsFile(this,filename,section);
 
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("triviaQuestion",triviaQuestionList.get(0));
+        //send data from the activity -> Fragment
 
-
-        //REPLACE THE LINEAR LAYOUT WITH FRAGMENT
+        bundle.putSerializable("triviaQuestion",triviaQuestionList.get(index));
+        index++;
+        //Create an instance of Fragment class
         TriviaFragment triviaFragment = new TriviaFragment();
         triviaFragment.setArguments(bundle);
 
-
         //REFERENCE THE FRAGMENT MANAGER
         android.app.FragmentManager fragmentManager = getFragmentManager();
+
         //BEGIN THE TRANSACTION
         android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         //REPLACE LINEAR LAYOUT MAIN_UI WITH THE FRAGMENT
         fragmentTransaction.replace(R.id.triviagame_fragment,triviaFragment);
 
@@ -69,35 +108,4 @@ public class TriviaGame extends AppCompatActivity implements View.OnClickListene
 
         setTitle(triviaQuestionList.get(0).getCategory());
     }
-
-
-    public void onClick(View view) {
-        switch (view.getId()) {
-
-            case R.id.btnAnswer:
-//               // TriviaFragment a = (TriviaFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
-//                boolean check;
-//               // check = a.next(i,j);
-//                if(check == true){
-//                i++;
-//                j+=4;
-//                }
-//                else
-//                {
-//                btnFinish.setEnabled(true);
-//                btnAnswer.setEnabled(false);
-//                Toast.makeText(this,"You have finished the test! Please select the FINISH button",Toast.LENGTH_LONG).show();
-//                }
-                break;
-
-            case R.id.btnFinish:
-//                Intent intent = new Intent(this, Result.class);
-//                intent.putExtra("tag", Arrayresult);
-//                startActivity(intent);
-//                break;
-
-                break;
-        }
-    }
-
 }
