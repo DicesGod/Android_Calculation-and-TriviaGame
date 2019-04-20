@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="serif"
-            android:text="Trivia Game Result!"
+            android:text="@string/triviaresult"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
@@ -54,8 +54,8 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="% Correct Answer:"
+                        android:layout_height="match_parent"
+                        android:text="@string/percentright"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -75,7 +75,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="% Failed Answer:"
+                        android:text="@string/percentfail"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
-            android:text="All"
+            android:text="@string/goback"
             android:textColor="@android:color/background_light"
             android:textStyle="bold" />
     </LinearLayout>

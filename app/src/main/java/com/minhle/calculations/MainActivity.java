@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewQuestion;
     TextView textViewCountDown;
     EditText editTextResult;
-    ArrayList Arrayresult;
     ArrayList getMathQuestionsListTemp;
     ArrayList mathQuestionsList;
     String content;
@@ -59,17 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                            break;
 
                        case R.id.nag_history:
-                           intent.putExtra("tag", "History");
+                           intent.putExtra("tag", getString(R.string.history));
                            startActivity(intent);
                            break;
 
                        case R.id.nag_art:
-                           intent.putExtra("tag", "Art");
+                           intent.putExtra("tag", getString(R.string.art));
                            startActivity(intent);
                            break;
 
                        case R.id.nag_sport:
-                           intent.putExtra("tag", "Sport");
+                           intent.putExtra("tag", getString(R.string.sport));
                            startActivity(intent);
                            break;
 
@@ -126,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewQuestion = findViewById(R.id.textViewQuestion);
         editTextResult = findViewById(R.id.editTextAnswer);
         textViewCountDown = findViewById(R.id.textViewCountDown);
-        Arrayresult = new ArrayList<String>();
         mathQuestionsList = new ArrayList<MathQuestion>();
         getMathQuestionsListTemp = new ArrayList<MathQuestion>();
         content = "";
@@ -211,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonStop:
-                textViewCountDown.setText("Please click to MathResult button to view your result or click to Start button to keep on doing the test");
+                textViewCountDown.setText(R.string.Instruction);
                 CountDownController.stopCount(this,textViewCountDown);
                 textViewQuestion.setText("");
                 editTextResult.setText("");
@@ -227,44 +225,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonEqual:
-                CountDownController.stopCount(this,textViewCountDown);
-                CountDownController.startCountDown(this, textViewCountDown, textViewQuestion);
-                int eslapsedTime = 10 - Integer.parseInt(textViewCountDown.getText().toString());
-                if (editTextResult.getText().length() != 0 && textViewQuestion.getText().length() !=0) {
-                    totalcount++;
-                    if (Float.parseFloat(String.valueOf(editTextResult.getText())) == OperatorController.getAnswer()) {
-                        Toast.makeText(this, "YOUR ANSWER IS CORRECT!", Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion("The user enters the right answer in "+eslapsedTime+" seconds",
-                                textViewQuestion.getText().toString(),
-                                OperatorController.getAnswer(),
-                                Float.parseFloat(editTextResult.getText().toString()),
-                                eslapsedTime,
-                                "Correct"));
-                        textViewQuestion.setText(OperatorController.getQuestion());
-                        editTextResult.setText("");
-                        correctcount++;
-                    }
-                    else {
-                        Toast.makeText(this, "YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " + String.format("%.2f", OperatorController.getAnswer()), Toast.LENGTH_LONG).show();
-                        getMathQuestionsListTemp.add(new MathQuestion("The user answers during "+eslapsedTime+" seconds",
-                                textViewQuestion.getText().toString(),
-                                OperatorController.getAnswer(),
-                                Float.parseFloat(editTextResult.getText().toString()),
-                                eslapsedTime,
-                                "Wrong"));
-                        textViewQuestion.setText(OperatorController.getQuestion());
-                        editTextResult.setText("");
-                    }
+                try {
+                    CountDownController.stopCount(this, textViewCountDown);
+                    CountDownController.startCountDown(this, textViewCountDown, textViewQuestion);
+                    int eslapsedTime = 10 - Integer.parseInt(textViewCountDown.getText().toString());
+                    if (editTextResult.getText().length() != 0 && textViewQuestion.getText().length() != 0) {
+                        totalcount++;
+                        if (Float.parseFloat(String.valueOf(editTextResult.getText())) == OperatorController.getAnswer()) {
+                            Toast.makeText(this, R.string.CorrectAnswer, Toast.LENGTH_LONG).show();
+                            getMathQuestionsListTemp.add(new MathQuestion(getString(R.string.RightAnswerIn)+" "+ eslapsedTime +" "+ getString(R.string.seconds),
+                                    textViewQuestion.getText().toString(),
+                                    OperatorController.getAnswer(),
+                                    Float.parseFloat(editTextResult.getText().toString()),
+                                    eslapsedTime, getString(R.string.correct)));
+                            textViewQuestion.setText(OperatorController.getQuestion());
+                            editTextResult.setText("");
+                            correctcount++;
+                        } else {
+                            Toast.makeText(this, getString(R.string.incorrectanswer)+" "+ String.format("%.2f", OperatorController.getAnswer()), Toast.LENGTH_LONG).show();
+                            getMathQuestionsListTemp.add(new MathQuestion(getString(R.string.wronganswerIn)+" " + eslapsedTime + " "+getString(R.string.seconds),
+                                    textViewQuestion.getText().toString(),
+                                    OperatorController.getAnswer(),
+                                    Float.parseFloat(editTextResult.getText().toString()),
+                                    eslapsedTime,
+                                    getString(R.string.wrong2)));
+                            textViewQuestion.setText(OperatorController.getQuestion());
+                            editTextResult.setText("");
+                        }
+                    } else
+                        Toast.makeText(this, R.string.warning1, Toast.LENGTH_LONG).show();
                 }
-                else
-                    Toast.makeText(this,"YOU HAVE NO OPERATION OR THE ANSWER!",Toast.LENGTH_LONG).show();
+                catch (Exception e)
+                {
+                    Toast.makeText(this, R.string.warning1, Toast.LENGTH_LONG).show();
+                }
+
                 break;
 
             case R.id.buttonSave:
                 mathQuestionsList.addAll(CountDownController.getFailAnswerList());
                 mathQuestionsList.addAll(getMathQuestionsListTemp);
                 MathQuestionsFileManagement.writeMathQuestionsFile(this,mathQuestionsList);
-                Toast.makeText(this,"Your test has been saved successfully!",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,R.string.savesuccess,Toast.LENGTH_LONG).show();
                 btnStop.setEnabled(false);
                 btnSave.setEnabled(false);
 
@@ -285,7 +287,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                 {
-                    Arrayresult.add(" "+percent+"% Correct Answer."+"\n"+" "+(100-percent)+"% Wrong Answer.");
                     Intent intent = new Intent(this, MathResult.class);
                     CountDownController.setFailAnswerList();
                     startActivity(intent);

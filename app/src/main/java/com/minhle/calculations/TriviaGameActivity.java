@@ -45,17 +45,17 @@ public class TriviaGameActivity extends AppCompatActivity{
                         break;
 
                     case R.id.nag_history:
-                        intent2.putExtra("tag", "History");
+                        intent2.putExtra("tag", getString(R.string.history));
                         startActivity(intent2);
                         break;
 
                     case R.id.nag_art:
-                        intent2.putExtra("tag", "Art");
+                        intent2.putExtra("tag", getString(R.string.art));
                         startActivity(intent2);
                         break;
 
                     case R.id.nag_sport:
-                        intent2.putExtra("tag", "Sport");
+                        intent2.putExtra("tag", getString(R.string.sport));
                         startActivity(intent2);
                         break;
 
@@ -71,7 +71,7 @@ public class TriviaGameActivity extends AppCompatActivity{
         menu = findViewById(R.id.navigation);
         textViewWelcome = findViewById(R.id.textViewWelcome);
         String section = (String) getIntent().getExtras().getSerializable("tag");
-        textViewWelcome.setText("Welcome to Trivia Game: "+section+"!");
+        textViewWelcome.setText(getString(R.string.welcome)+" "+section+"!");
         triviaQuestionList = new ArrayList<TriviaQuestion>();
         triviaQuestionList = TriviaQuestionsFileManagement.readTriviaQuestionsFile(this,filename,section);
 

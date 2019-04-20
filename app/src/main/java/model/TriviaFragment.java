@@ -121,7 +121,7 @@ public class TriviaFragment extends android.app.Fragment implements View.OnClick
                     btnFinish.setEnabled(true);
                     btnAnswer.setEnabled(false);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        Toast.makeText(getContext(), "You have finished the test. Please click Finish button!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), getString(R.string.finishtriviatest), Toast.LENGTH_LONG).show();
                     }
                 }
                 break;

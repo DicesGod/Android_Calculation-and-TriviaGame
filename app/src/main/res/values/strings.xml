@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Calculations</string>
     <string name="nag_math">Math</string>
-    <string name="nag_history">History</string>
+    <string name="nag_history" translatable="false">History</string>
     <string name="nag_sport">Sport</string>
     <string name="nag_art">Art</string>
 
@@ -12,15 +12,15 @@
     <string name="buttonSave">Save</string>
     <string name="buttonResult">Result</string>
 
-    <string name="right">"The user entered the right answer in "+time+" seconds</string>
-    <string name="wrong">"The user answered during "+time+" seconds</string>
-    <string name="notanswer">The user didn’t answer during 10 seconds</string>
+    <string name="correct">Correct</string>
+    <string name="wrong2">Wrong</string>
+    <string name="fail" translatable="false">Fail</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <string name="math">Math</string>
-    <string name="history">History</string>
+    <string name="history" translatable="false">History</string>
     <string name="art">Art</string>
     <string name="sport">Sport</string>
     <string-array name="navigationBar">
@@ -29,5 +29,38 @@
         <item>@string/art</item>
         <item>@string/sport</item>
     </string-array>
+
+    <string name="failanswer">The user didn’t answer during 10 seconds</string>
+    <string name="Youhave10seconds">You have 10 seconds for each question! </string>
+    <string name="editTextViewAnswer">Please enter the result</string>
+    <string name="CorrectAnswer">YOUR ANSWER IS CORRECT!</string>
+    <string name="incorrectanswer">YOUR ANSWER IS WRONG! CORRECT ANSWER IS: " </string>
+    <string name="RightAnswerIn">The user enters the right answer in </string>
+    <string name="wronganswerIn">The user answers during </string>
+    <string name="seconds"> seconds</string>
+    <string name="Instruction">Please click to MathResult button to view your result or click to Start button to keep on doing the test</string>
+    <string name="warning1">YOU HAVE NO OPERATION OR THE ANSWER!</string>
+    <string name="savesuccess">Your test has been saved successfully!</string>
+
+    <string name="welcome">Welcome to Trivia Game:</string>
+
+    <string name="totalquestions">Total Questions:</string>
+    <string name="totalanswered">Total Answered Questions:</string>
+    <string name="totalduration">Total Duration:</string>
+    <string name="elapsedtime">Total Elapsed Time:</string>
+    <string name="percentright">% correct answer:</string>
+    <string name="percentfail">% fail answer:</string>
+    <string name="velocity">Velocity: </string>
+
+    <string name="operation">Operation:</string>
+    <string name="elapsedtime2">Elapsed Time</string>
+    <string name="answer">Answer</string>
+    <string name="status">Status</string>
+    <string name="goback">Go Back</string>
+
+    <string name="triviaresult">Trivia Game Result!</string>
+    <string name="finishtriviatest">You have finished the test. Please click Finish button!</string>
+    <string name="notanswer">User did not respond for 10 seconds</string>
+    <string name="failreadfile">Failed to read the file!</string>
 
 </resources>

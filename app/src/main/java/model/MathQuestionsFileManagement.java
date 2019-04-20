@@ -2,7 +2,10 @@ package model;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.widget.Toast;
+
+import com.minhle.calculations.R;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -93,7 +96,7 @@ public class MathQuestionsFileManagement {
 
     }
 
-    public static String calculateResult(ArrayList<MathQuestion> mathQuestionsList) {
+    public static String calculateResult(ArrayList<MathQuestion> mathQuestionsList,Context context) {
         float totalQuestions = mathQuestionsList.size();
         float totalAnsweredQuestions = 0;
         float totalDuration = 10 * mathQuestionsList.size();;
@@ -122,13 +125,15 @@ public class MathQuestionsFileManagement {
         percentfailAnswer = 100-percentCorrectAnswer;
         velocity = elapsedTime/totalDuration;
 
-        return "Total Questions: "+totalQuestions+"\n"
-                +"Total Answered Questions: "+totalAnsweredQuestions+"\n"
-                +"Total Duration: "+totalDuration+"\n"
-                +"Total Elapsed Time: "+elapsedTime+"\n"
-                +"% correct answer: "+percentCorrectAnswer+"%"+"\n"
-                +"% fail answer: "+percentfailAnswer+"%"+"\n"
-                +"Velocity: "+velocity;
+
+
+        return  context.getString(R.string.totalquestions)+" "+totalQuestions+"\n"
+                +context.getString(R.string.totalanswered)+" "+totalAnsweredQuestions+"\n"
+                +context.getString(R.string.totalduration)+" "+totalDuration+"\n"
+                +context.getString(R.string.elapsedtime)+" "+elapsedTime+"\n"
+                +context.getString(R.string.percentright)+" "+percentCorrectAnswer+"%"+"\n"
+                +context.getString(R.string.percentfail)+" "+percentfailAnswer+"%"+"\n"
+                +context.getString(R.string.velocity)+" "+velocity;
     }
 
 }

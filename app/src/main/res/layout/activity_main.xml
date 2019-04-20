@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
-                android:hint="Please enter the result"
+                android:hint="@string/editTextViewAnswer"
                 android:inputType="number" />
         </LinearLayout>
 
@@ -228,7 +228,7 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:textSize="20sp"
-            android:text="You have 10 seconds for each question! " />
+            android:text="@string/Youhave10seconds" />
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"

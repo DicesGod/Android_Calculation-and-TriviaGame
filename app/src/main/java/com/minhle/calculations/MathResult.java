@@ -26,25 +26,6 @@ public class MathResult extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         initialize();
-
-
-
-        //if (savedInstanceState != null) {
-            //String message = savedInstanceState.getString("lesson");
-           // Toast.makeText(this, "!=null", Toast.LENGTH_LONG).show();
-            //listresult = savedInstanceState.getStringArrayList("myarraylist");
-            //listresult.addAll((ArrayList) getIntent().getExtras().getSerializable("tag"));
-       // }
-        //else{
-            //String message = savedInstanceState.getString("lesson");
-            //Toast.makeText(this, "=null", Toast.LENGTH_LONG).show();
-
-       // }
-
-       // String result="";
-
-
-
     }
 
     public void initialize()
@@ -58,28 +39,8 @@ public class MathResult extends AppCompatActivity{
         };
         listViewMathResult = findViewById(R.id.listViewResult);
         listViewMathResult.setAdapter(mathResulstArrayAdapter);
-        textViewPercent.setText(MathQuestionsFileManagement.calculateResult(mathResultsList));
-//        mathResulstArrayAdapter.addAll(mathResultsList);
-//        mathResulstArrayAdapter.notifyDataSetChanged();
+        textViewPercent.setText(MathQuestionsFileManagement.calculateResult(mathResultsList,getApplicationContext()));
     }
-
-    //@Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//
-//
-//        outState.putString("lesson", "a");
-//
-//
-//
-//    }
-
-//    @Override
-//    protected void onSaveInstanceState(Bundle savedInstanceState) {
-//        //savedInstanceState.putStringArrayList("myarraylist",listresult);
-//        savedInstanceState.putString("message", "This is my message to be reloaded");
-//        super.onSaveInstanceState(savedInstanceState);
-//    }
 
     public void back(View view){
         Intent intent = new Intent(this, MainActivity.class);

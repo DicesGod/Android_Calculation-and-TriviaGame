@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculs</string>
+    <string name="nag_math">Math</string>
+    <string name="nag_sport">Sport</string>
+    <string name="nag_art">Art</string>
+    <string name="buttonStart">Début</string>
+    <string name="buttonClear">Claire</string>
+    <string name="buttonStop">Arrêtez</string>
+    <string name="buttonQuit">Quitter</string>
+    <string name="buttonSave">Sauvegarder</string>
+    <string name="buttonResult">Résultat</string>
+    <string name="math">Math</string>
+    <string name="art">Art</string>
+    <string name="sport">Sport</string>
+    <string name="failanswer">L\'utilisateur n\'a pas répondu pendant 10 secondes</string>
+    <string name="Youhave10seconds">Vous avez 10 secondes pour chaque question!</string>
+    <string name="editTextViewAnswer">S\'il vous plaît entrer le résultat</string>
+    <string name="CorrectAnswer">Votre réponse est correcte!</string>
+    <string name="incorrectanswer">VOTRE RÉPONSE EST FAUX! La réponse correcte est:</string>
+    <string name="RightAnswerIn">L\'utilisateur entre la bonne réponse dans</string>
+    <string name="wronganswerIn">L\'utilisateur répond pendant</string>
+    <string name="seconds">seconds</string>
+    <string name="Instruction">Cliquez sur le bouton MathResult pour afficher votre résultat ou sur le bouton Démarrer pour continuer le test.</string>
+    <string name="warning1">VOUS N\'AVEZ AUCUNE OPERATION OU LA REPONSE!</string>
+    <string name="savesuccess">Votre test a été enregistré avec succès!</string>
+    <string name="welcome">Bienvenue sur Jeu-questionnaire:</string>
+    <string name="totalquestions">Nombre total de questions:</string>
+    <string name="totalanswered">Nombre total de questions répondues:</string>
+    <string name="totalduration">Durée totale:</string>
+    <string name="elapsedtime">Temps total écoulé:</string>
+    <string name="percentright">% bonne réponse:</string>
+    <string name="percentfail">% échec réponse:</string>
+    <string name="velocity">Rapidité:</string>
+    <string name="operation">Opération:</string>
+    <string name="elapsedtime2">Temps écoulé</string>
+    <string name="answer">Réponse</string>
+    <string name="status">Statut</string>
+    <string name="goback">Retourner</string>
+    <string name="triviaresult">Résultat Jeu Trivia!</string>
+    <string name="notanswer">L\'utilisateur n\'a pas répondu pendant 10 secondes</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="wrong2">Wrong</string>
+    <string name="finishtriviatest">Vous avez terminé le test. S\'il vous plaît cliquez sur le bouton Terminer!</string>
+    <string name="correct">Correct</string>
+    <string name="failreadfile">Impossible de lire le fichier!</string>
+</resources>

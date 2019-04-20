@@ -32,7 +32,6 @@ public class CountDownController {
 
     public static void startCountDown(final Context context, final TextView textViewCountDown, final TextView textViewQuestion)
     {
-
         countDownTimer = new CountDownTimer(10000, 1000) {
 
                         @Override
@@ -44,7 +43,7 @@ public class CountDownController {
 
                         @Override
                         public void onFinish() {
-                            failAnswerList.add(new MathQuestion("The user didn’t answer during 10 seconds",textViewQuestion.getText().toString(), OperatorController.getAnswer(),null,10,"Fail"));
+                            failAnswerList.add(new MathQuestion(context.getString(R.string.failanswer),textViewQuestion.getText().toString(), OperatorController.getAnswer(),null,10,"Fail"));
                             textViewQuestion.setText(OperatorController.getQuestion());
                             startCountDown(context, textViewCountDown, textViewQuestion);
                         }
