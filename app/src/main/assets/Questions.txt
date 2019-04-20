@@ -1,30 +1,15 @@
-art,Who is credited as the designer of the many statues which decorated the Parthenon?,A: Hesiod B: Praxiteles C: Scopas D: Phidias,d
-art,What artist was struck in the face with a mallet by an envious rival - disfiguring him for life?,A: Rembrandt B: Raphael C: Michelangelo D: Titian,c
-art,What artist is best known for a painting of his mother?,A: Francisco Goya B: James Abbot Mcneil Whistler C: Johannes Vermeer D: Pierre-Auguste Renoir,b
-art,What art movement was Yoko Ono associated with during the 1960s?,A: Futurism B: Post-impressionism C: Dadaism D: Fluxus,d
-art,How many paintings did Vincent Van Gogh sell during his lifetime?,A: 193 B: 1 C: 842 D:27,b
-art,To which artistic movement does Paul Gauguin's The Yellow Christ belong?,A: Orphism B: Bauhaus C: Cloisonnism D: Contextual modernism,c
-art,According to Vatican researcher Sabrina Sforza Galitzia - what does Leonardo da Vinci's The Last Supper predict?,A: Return of the messiah B: Location of the garden or Eden C: An apocalyptic flood D: First contact with aliens,c
-art,What artist sold a balloon dog for $58.4 million?,A: Jasper Johns B: Chirstopher Wool C: Jeff Koons D: Gerhart Richter,c
-art,Who was the court sculptor of Alexander the Great?,A: Vitruvius B: Praxiteles C: Apelles D: Lysippus,d
-art,Who painted the Mona Lisa?,A: Pablo Piccaso B: Leonado Da Vinci C: Rembardt D: Vincent Van Gogh,b
-history,Who said "Witches should be burned with their cat's" ?,A: Innocent Pope I B: King George C: Shakespeare D: Queen Victoria,a
-history,Who was a queen of Russia?,A: Cleopatra B: Catherine the great C: Victoria I D: Jenny the I,b
-history,Who was fighting in the French and Indian war?, A: The French against the Indians B: The French and the Indians against England C: The French against England D: The Indians and England against the French,b
-history,When did Germany attack Poland ?, A: September 1 1939 B: December 7 1941 C: June 6 1944 D: August 6 1945,a
-history,How many men died in Stalingrad ?, A: 50 000 B: 250 000 C: 2000 D: 30 000,b
-history,What was the name of the German Airforce ?, A: RAF B: Luftwaffe C: Lufttansa D: Luftdruck,b
-history,The weapon the soldiers used to break into Troy was the Trojan _________?, A: Mule B: Taco C: Horse D: Dog,c
-history,Heinrich Scliemann discovered what ancient city?, A: Troy B: Crete C: Athens D: Olympia,a
-history,The Reason For The Trojan War was to kidnap whom back?,A: Aracne B: Helen C: Miss. Olympia D: Athena,b
-history,Which British General surrendered to George Washington to end the Revolutionary War (American War of Independence) in 1781?,A: Cornwallis B: Lafayette C: Churchill D: Jullius,a
-sport,With 15 921 runs, which international cricketer holds the record for the most Test runs?,A: Sachin Tendulkar B: Ricky Ponting C: Brian Lara D: Viv Richards,a
-sport,How many players have won 3 Brownlow medal awards - the highest individual honour in Australian Rules football?,A; 1 B: 2 C: 3 D: 4,d
-sport,At 9.58 seconds Usain Bolt holds the record for the fastest time in the 100 metre sprint - but which sprinter holds the female record with 10.49 seconds?,A: Marion Jones B: Shelly-Ann Fraser-Pryce C: Florence Griffith-Joyner D: Carmelita Jeter,c
-sport,U.S Baseball star Babe Ruth played for the Boston Red Sox - New York Yankees and which other baseball team?,A: Boston Braves B: Los Angeles Dodgers C: Philadelphia Phillies D: Cincinnati Reds,a
-sport,Which nation won Gold in women’s hockey at the 2012 London Olympics?,A: Netherlands B: Great Britain C: New Zealand D: U.S.A,a
-sport,Which golfer won the 2013 Masters Tournament in Augusta - Georgia?,A: Rory Mcllroy B: Phil Mickelson C: Adam Scott D: Tiger Woods,c
-sport,Which English Premier League football club supporters traditionally sing the song ‘You'll Never Walk Alone’ before commencement of the match?,A: Chelsea FC B: Manchester United C: Liverpool FC D: Leeds United FC,c
-sport,Which 2 male tennis players have the most Wimbledon singles titles: seven each?,A: Roger Federer and Andre Agassi B: Roger Federer and Raphael Nadal C:  Pete Sampras and Andre Agassi D: Roger Federer and Pete Sampras,4
-sport,Retired Australian thoroughbred racehorse - Black Caviar was undefeated in how many races?, A: 23 B: 24 C: 25 D: 26,c
-sport,Who is the only wrestler in WWE history to hold the title of champion for over 4,000 days?, A: John Cena B: Hulk Hogan C: Bob Blacklund D: Bruno Sammartino,d
+Art,Who is credited as the designer of the many statues which decorated the Parthenon?,A: Hesiod,B: Praxitele,C: Scopas,D: Phidias,d
+Art,What artist was struck in the face with a mallet by an envious rival - disfiguring him for life?,A: Rembrandt,B: Raphael,C: Michelangelo,D: Titian,c
+Art,What artist is best known for a painting of his mother?,A: Francisco Goya,B: James Abbot Mcneil Whistler,C: Johannes Vermeer,D: Pierre-Auguste Renoir,b
+Art,What art movement was Yoko Ono associated with during the 1960s?,A: Futurism,B: Post-impressionism,C: Dadaism,D: Fluxus,d
+Art,How many paintings did Vincent Van Gogh sell during his lifetime?,A: 193,B: 1,C: 842,D:27,b
+History,Who said "Witches should be burned with their cat's" ?,A: Innocent Pope I,B: King George,C: Shakespeare,D: Queen Victoria,a
+History,Who was a queen of Russia?,A: Cleopatra,B: Catherine the great,C: Victoria I,D: Jenny the I,b
+History,Who was fighting in the French and Indian war?,A: The French against the Indians,B: The French and the Indians against England,C: The French against England,D: The Indians and England against the French,b
+History,When did Germany attack Poland ?,A: September 1 1939,B: December 7 1941,C: June 6 1944,D: August 6 1945,a
+History,How many men died in Stalingrad ?,A: 50 000,B: 250 000,C: 2000,D: 30 000,b
+Sport,With 15 921 runs - which international cricketer holds the record for the most Test runs?,A: Sachin Tendulkar,B: Ricky Ponting,C: Brian Lara,D: Viv Richards,a
+Sport,How many players have won 3 Brownlow medal awards - the highest individual honour in Australian Rules football?,A; 1,B: 2,C: 3,D: 4,d
+Sport,At 9.58 seconds Usain Bolt holds the record for the fastest time in the 100 metre sprint - but which sprinter holds the female record with 10.49 seconds?,A: Marion Jones,B: Shelly-Ann Fraser-Pryce,C: Florence Griffith-Joyner,D: Carmelita Jeter,c
+Sport,U.S Baseball star Babe Ruth played for the Boston Red Sox - New York Yankees and which other baseball team?,A: Boston Braves,B: Los Angeles Dodgers,C: Philadelphia Phillies,D: Cincinnati Reds,a
+Sport,Which nation won Gold in women’s hockey at the 2012 London Olympics?,A: Netherlands,B: Great Britain,C: New Zealand,D: U.S.A,a

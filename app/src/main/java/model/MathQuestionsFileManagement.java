@@ -17,7 +17,7 @@ import java.util.Formatter;
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class mathQuestionsFileManagement {
+public class MathQuestionsFileManagement {
 
     static String fileName = "mathQuestions";
     static File mathQuestionsFile;

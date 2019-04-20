@@ -12,12 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Art" />
-        <activity android:name=".Sport" />
-        <activity android:name="model.History" />
-
-
-
+        <activity android:name=".TriviaGame" />
         <activity android:name=".Result" />
         <activity
             android:name=".MainActivity"

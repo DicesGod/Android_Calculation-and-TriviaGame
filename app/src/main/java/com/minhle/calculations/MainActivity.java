@@ -15,12 +15,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import model.History;
 import model.MathQuestion;
 import model.Navigation;
-import model.mathQuestionsFileManagement;
+import model.MathQuestionsFileManagement;
+import model.TriviaQuestion;
+import model.TriviaQuestionsFileManagement;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,12 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initialize();
         Navigation nag = new Navigation();
-//        Context a = getApplicationContext();
-//        nag.navigation(menu,a);
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                @Override
                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                   Intent intent = new Intent(MainActivity.this,TriviaGame.class);
 
                    switch (item.getItemId()) {
                        case R.id.nag_math:
@@ -61,9 +62,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                            break;
 
                        case R.id.nag_history:
-                           MainActivity.this.startActivity(new Intent(MainActivity.this, History.class));
+                           intent.putExtra("tag", "History");
+                           startActivity(intent);
                            break;
 
+                       case R.id.nag_art:
+                           intent.putExtra("tag", "Art");
+                           startActivity(intent);
+                           break;
+
+                       case R.id.nag_sport:
+                           intent.putExtra("tag", "Sport");
+                           startActivity(intent);
+                           break;
 
                    }
                 return false;
@@ -128,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSave.setEnabled(false);
         btnStop.setEnabled(false);
 
-        drawerLayout = findViewById(R.id.navigationbar);
+        drawerLayout = findViewById(R.id.mainUI);
         listViewNavigationbar = findViewById(R.id.listviewnavigationbar);
         listofNavigations = getResources().getStringArray(R.array.navigationBar);
         //listViewNavigationbar.setOnItemClickListener();
@@ -198,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonMinus:
-                mathQuestionsFileManagement.deleteFile(this);
+                MathQuestionsFileManagement.deleteFile(this);
                 editTextResult.setText(editTextResult.getText()+"-");
                 break;
 
@@ -255,8 +266,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonSave:
                 mathQuestionsList.addAll(CountDownController.getFailAnswerList());
                 mathQuestionsList.addAll(getMathQuestionsListTemp);
-                mathQuestionsFileManagement.writeMathQuestionsFile(this,mathQuestionsList);
-                //Toast.makeText(this,"Your test has been saved successfully!",Toast.LENGTH_LONG).show();
+                MathQuestionsFileManagement.writeMathQuestionsFile(this,mathQuestionsList);
+                Toast.makeText(this,"Your test has been saved successfully!",Toast.LENGTH_LONG).show();
                 btnStop.setEnabled(false);
                 btnSave.setEnabled(false);
 
@@ -271,7 +282,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 float percent = correctcount/totalcount*100;
                 if (mathQuestionsList.toString()==null) {
                     Intent intent = new Intent(this, Result.class);
-                    //intent.putExtra("tag", mathQuestionsList);
                     CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;
@@ -280,7 +290,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     Arrayresult.add(" "+percent+"% Correct Answer."+"\n"+" "+(100-percent)+"% Wrong Answer.");
                     Intent intent = new Intent(this, Result.class);
-                    //intent.putExtra("tag", mathQuestionsList);
                     CountDownController.setFailAnswerList();
                     startActivity(intent);
                     break;

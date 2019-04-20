@@ -1,21 +1,16 @@
 package com.minhle.calculations;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import model.MathQuestion;
-import model.mathQuestionsFileManagement;
+import model.MathQuestionsFileManagement;
 
 public class Result extends AppCompatActivity{
 
@@ -54,7 +49,7 @@ public class Result extends AppCompatActivity{
 
     public void initialize()
     {
-        mathResultsList = mathQuestionsFileManagement.readMathQuestionsFile(this);
+        mathResultsList = MathQuestionsFileManagement.readMathQuestionsFile(this);
 
         btnBack = findViewById(R.id.buttonBack);
         listViewMathResult = findViewById(R.id.listViewResult);
@@ -63,7 +58,7 @@ public class Result extends AppCompatActivity{
         };
         listViewMathResult = findViewById(R.id.listViewResult);
         listViewMathResult.setAdapter(mathResulstArrayAdapter);
-        textViewPercent.setText(mathQuestionsFileManagement.calculateResult(mathResultsList));
+        textViewPercent.setText(MathQuestionsFileManagement.calculateResult(mathResultsList));
 //        mathResulstArrayAdapter.addAll(mathResultsList);
 //        mathResulstArrayAdapter.notifyDataSetChanged();
     }

@@ -14,8 +14,8 @@ import java.util.StringTokenizer;
 
 public class TriviaQuestionsFileManagement {
 
-    public static ArrayList<TrviaQuestion> readTriviaQuestionsFile(Context context, String fileName){
-        ArrayList<TrviaQuestion> listOfTriviaQuestions = new ArrayList<>();
+    public static ArrayList<TriviaQuestion> readTriviaQuestionsFile(Context context, String fileName, String section){
+        ArrayList<TriviaQuestion> listOfTriviaQuestions = new ArrayList<>();
 
         AssetManager assetManager = context.getResources().getAssets();
 
@@ -29,14 +29,16 @@ public class TriviaQuestionsFileManagement {
 
             while (oneLine != null){
                 StringTokenizer st = new StringTokenizer(oneLine,",");
+                String category = st.nextToken();
                 String question = st.nextToken();
                 String option1 = st.nextToken();
                 String option2 = st.nextToken();
                 String option3 = st.nextToken();
                 String option4 = st.nextToken();
                 String rightanswer = st.nextToken();
-
-                listOfTriviaQuestions.add(new TrviaQuestion(question,option1,option2,option3,option4,rightanswer));
+                if (category.equals(section)) {
+                    listOfTriviaQuestions.add(new TriviaQuestion(category, question, option1, option2, option3, option4, rightanswer));
+                }
                 oneLine = br.readLine();
             }
             br.close();

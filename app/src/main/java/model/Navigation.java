@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 
 import com.minhle.calculations.MainActivity;
 import com.minhle.calculations.R;
+import com.minhle.calculations.TriviaGame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -25,7 +26,7 @@ public class Navigation extends AppCompatActivity {
                         break;
 
                     case R.id.nag_history:
-                        Intent intent3 = new Intent(getApplicationContext(), History.class);
+                        Intent intent3 = new Intent(getApplicationContext(), TriviaGame.class);
                         startActivity(intent3);
                         break;
 
